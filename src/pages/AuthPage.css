@@ -1,0 +1,124 @@
+.auth-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #e0f2e9, #b2dfdb); /* soft green gradient */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.auth-card {
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  position: relative;
+}
+
+/* Toggle section */
+.auth-toggle {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  background: #d9f4e5; /* very light green */
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+}
+
+.toggle-btn {
+  flex: 1;
+  padding: 0.75rem;
+  background: transparent;
+  border: none;
+  font-weight: 600;
+  font-size: 1rem;
+  color: #2e7d32; /* green text */
+  z-index: 1;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+/* Sliding highlight background */
+.auth-toggle::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(135deg, #81c784, #66bb6a); /* green highlight */
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+  z-index: 0;
+}
+
+.auth-toggle.signup-active::before {
+  transform: translateX(100%);
+}
+
+.toggle-btn.active {
+  color: white;
+}
+
+/* Form */
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  animation: fadeIn 0.4s ease-in-out both;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.auth-form input {
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.auth-form input:focus {
+  border-color: #66bb6a;
+  box-shadow: 0 0 0 3px rgba(102, 187, 106, 0.2);
+  outline: none;
+}
+
+.submit-btn {
+  padding: 0.75rem;
+  background: linear-gradient(135deg, #81c784, #66bb6a);
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.submit-btn:hover {
+  background: linear-gradient(135deg, #66bb6a, #4caf50);
+  transform: translateY(-1px);
+}
+.error-msg {
+  color: red;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.success-msg {
+  color: green;
+  margin-bottom: 1rem;
+  text-align: center;
+}
